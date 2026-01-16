@@ -2,6 +2,8 @@ public class Bunny {
         int x;  // Start-Position (Hase) M
         int y;
 
+        int windowswidth = 800;   //Fensterbreite M 
+
         int bunnyWidth = 40;       // Grösse Hase M
         int bunnyHeight = 40;
 
@@ -12,16 +14,23 @@ public class Bunny {
 
         int groundY;   //Bodenhöhe M
 
-        public Bunny(int startX, int groundY){      //M
+        public Bunny(int startX, int groundY, int windowswidth){      //M
             this.x = startX;
             this.groundY = groundY;
             this.y = groundY - bunnyHeight;
+            this.windowswidth = windowswidth;
         }
         public void moveLeft(){
             x -= speed;
+            if(x < 0){
+                x = 0;
+            }
         }
         public void moveRight(){
             x += speed;
+            if(x > windowswidth - bunnyWidth){     //bunny kann sich aus dem Fenster nicht rausbewegen M
+                x = windowswidth - bunnyWidth;
+            }
         }
         public void Jump(){     //springen M
             if (isOnGround()){
@@ -43,6 +52,8 @@ public class Bunny {
             private boolean isOnGround(){
                 return y >= groundY - bunnyHeight; //M
             }
+            
+
             } 
        
        

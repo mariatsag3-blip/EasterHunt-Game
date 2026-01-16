@@ -15,7 +15,7 @@ public class EasterHunt {
         int groundY = height - 160; //Höhe des Bodens M
         double grassTopY = - 140;     // oberer Rand vom Gras M
 
-        Bunny bunny = new Bunny(width / 2, groundY); // Bunny erzeugt M
+        Bunny bunny = new Bunny(width / 2, groundY, width); // Bunny erzeugt M
 
         while(true){
             Draw.clearScreen();
