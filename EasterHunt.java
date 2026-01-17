@@ -15,7 +15,9 @@ public class EasterHunt {
         int groundY = height - 160; //Höhe des Bodens M
         double grassTopY = - 140;     // oberer Rand vom Gras M
 
-        Bunny bunny = new Bunny(width / 2, groundY, width); // Bunny erzeugt M
+        Eagle eagle = new Eagle(-50, 40, 60, 40); // Eagle Objekt erzeugt M
+
+        Bunny bunny = new Bunny(width / 2, groundY, width); // Bunny Objekt erzeugt M
 
         while(true){
             Draw.clearScreen();
@@ -31,7 +33,8 @@ public class EasterHunt {
             }
             bunny.applyPhysics();
             bunny.draw();
-
+            eagle.draw();
+            eagle.eaglemovement();
             
             Draw.syncToFrameRate();
 
