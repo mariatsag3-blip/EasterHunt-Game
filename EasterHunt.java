@@ -6,6 +6,9 @@ public class EasterHunt {
 
     static final int width = 1000;
     static final int height = 800;
+    static Bunny bunny;
+    static Eagle eagle;
+    static boolean gameover = false;
 
     public static void main(String[] args){
 
@@ -15,11 +18,13 @@ public class EasterHunt {
         int groundY = height - 160; //Höhe des Bodens M
         double grassTopY = - 140;     // oberer Rand vom Gras M
 
-        Eagle eagle = new Eagle(-50, 40, 60, 40); // Eagle Objekt erzeugt M
+        eagle = new Eagle(-50, 40, 60, 40); // Eagle Objekt erzeugt M
 
-        Bunny bunny = new Bunny(width / 2, groundY, width); // Bunny Objekt erzeugt M
+        bunny = new Bunny(width / 2, groundY, width); // Bunny Objekt erzeugt M
 
         while(true){
+            
+            if(!gameover){ //Solange kein Game Over ist M
             Draw.clearScreen();
             if (Draw.isKeyDown(KeyEvent.VK_LEFT)){  //Taste Bewegung nach Links M
                 bunny.moveLeft();
@@ -35,12 +40,29 @@ public class EasterHunt {
             bunny.draw();
             eagle.draw();
             eagle.eaglemovement();
-            
+            gameOver();
+        }
+        else{                    //Wenn Game Over ist M
+            Draw.clearScreen();
+            Draw.setColor(255, 0, 0);
+            Draw.text(width / 2 - 50, height / 2, "Game Over");
+        }
+
             Draw.syncToFrameRate();
+        }
+    }
+            static void gameOver(){
+                if(Math.abs(eagle.x- bunny.x) < 30){   //Wenn der Abstand zwischen Adler und Hase kleiner als 30 ist M
+                    System.out.println("Game Over");
+                    gameover = true;
+                }
+            }
+            
+            
 
         }
 
 
-    }
     
-}
+    
+

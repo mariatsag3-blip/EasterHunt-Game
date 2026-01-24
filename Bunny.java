@@ -52,9 +52,12 @@ public class Bunny {
             private boolean isOnGround(){
                 return y >= groundY - bunnyHeight; //M
             }
+
+            
+            }
             
 
-            } 
+        
        
        
        
