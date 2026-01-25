@@ -54,8 +54,16 @@ public class EasterHunt {
         }
         else{                    //Wenn Game Over ist M
             Draw.clearScreen();
-            Draw.setColor(255, 0, 0);
-            Draw.text(width / 2 - 50, height / 2, "Game Over");
+            Draw.setColor(0, 0, 0); //Schwarzer Hintergrund M
+            Draw.filledRect(0, 0, width, height);
+            Draw.setColor(255, 0, 0); //Roter Text M
+            Draw.text(width / 2 , height / 2 + 30, "GAME OVER"); //Game Over Text M
+            Draw.text(width / 2, height / 2 - 30, "Press R to restart");
+            if ( Draw.isKeyDown(KeyEvent.VK_R)){  //R Taste zum Neustarten M
+                gameover = false;
+                bunny = new Bunny(width / 2, groundY, width); // Neues Bunny Objekt erzeugt M
+                eagle = new Eagle(-50, 40, 60, 40); // Neues Eagle Objekt erzeugt M
+            }
         }
 
             Draw.syncToFrameRate();

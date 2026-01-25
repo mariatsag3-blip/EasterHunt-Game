@@ -1,3 +1,6 @@
+import javax.sound.sampled.*; 
+import java.io.File;
+
 public class Eagle {
 
     int x= -50;
@@ -25,7 +28,8 @@ public class Eagle {
 
         if(Math.random() < 0.001){  //Wenn adler nicht aktiv ist, x% Chance das er wieder erscheint (~alle 16 sek.)M
             active = true;
-            x = -eaglewidth;               //Adler startet wieder von links M
+            x = -eaglewidth;       //Adler startet links ausserhalb des Fensters M
+            playSound();           //Adler Sound abspielen M
         }
        
         }
@@ -37,6 +41,17 @@ public class Eagle {
             
             }
             
+        }
+        public void playSound(){ //Adler Sound abspielen M
+            try {
+                File soundFile = new File("eaglesound.wav"); // Pfad zur Sounddatei M
+                AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
+                Clip clip = AudioSystem.getClip();
+                clip.open(audioIn);
+                clip.start();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
         }
     

@@ -1,4 +1,4 @@
-public class Grass {
+public class Grass {    //Grass Klasse (S)
     double x, y, width, height;
 
     public Grass(double x, double y, double width, double height) {
