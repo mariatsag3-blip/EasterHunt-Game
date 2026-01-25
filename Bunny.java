@@ -9,6 +9,8 @@ public class Bunny {
 
         int speed = 6;  //horizontale Geschwindigkeit M
 
+        boolean hidden = false;  //Hase ist nicht versteckt M
+
         double fallspeed = 0;           
         double gravitation = 0.8;
 
@@ -40,21 +42,37 @@ public class Bunny {
         public void applyPhysics(){   //Physik anwenden M
             fallspeed += gravitation;
             y += fallspeed;
+        
             
             if ( y> groundY - bunnyHeight){
                 y = groundY - bunnyHeight;    //M
                 fallspeed = 0;
             }
-            }
-            public void draw(){                                 //Provisorische Zeichnung des Hasen
+        }
+            
+            public void draw(){  
+                if (!hidden) {
                 Draw.filledRect(x, y, bunnyWidth, bunnyHeight);
             }
+        }
             private boolean isOnGround(){
                 return y >= groundY - bunnyHeight; //M
             }
+        
+
+    public double getX() {return x;}
+    public double getY() {return y;}
+    public double getWidth() {return bunnyWidth;}
+    public double getHeight() {return bunnyHeight;}
+
+    public void setHidden(boolean hidden) { 
+        this.hidden = hidden;
+    }
+    public boolean isHidden() {
+         return hidden;}
+    }
 
             
-            }
             
 
         

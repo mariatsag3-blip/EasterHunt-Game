@@ -8,6 +8,7 @@ public class EasterHunt {
     static final int height = 800;
     static Bunny bunny;
     static Eagle eagle;
+    static Grass grass;
     static boolean gameover = false;
 
     public static void main(String[] args){
@@ -21,6 +22,8 @@ public class EasterHunt {
         eagle = new Eagle(-50, 40, 60, 40); // Eagle Objekt erzeugt M
 
         bunny = new Bunny(width / 2, groundY, width); // Bunny Objekt erzeugt M
+
+        grass = new Grass(200, groundY, 200, 40); //Grass Objekt erzeugt (S)
 
         while(true){
             
@@ -36,6 +39,13 @@ public class EasterHunt {
             if (Draw.isKeyDown(KeyEvent.VK_SPACE)){  //Taste Sprung M
                 bunny.Jump();
             }
+            //Gibt an, wenn der Hase versteckt ist (S)
+
+            if (grass.isBunnyHidden(bunny)){
+                bunny.setHidden(true);
+            } else {
+                bunny.setHidden(false);
+           }
             bunny.applyPhysics();
             bunny.draw();
             eagle.draw();
