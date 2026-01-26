@@ -59,16 +59,16 @@ public class Bunny {
                 return y >= groundY - bunnyHeight; //M
             }
         
-
+        //S
     public double getX() {return x;}
     public double getY() {return y;}
     public double getWidth() {return bunnyWidth;}
     public double getHeight() {return bunnyHeight;}
 
-    public void setHidden(boolean hidden) { 
+    public void setHidden(boolean hidden) { //S
         this.hidden = hidden;
     }
-    public boolean isHidden() {
+    public boolean isHidden() { //S
          return hidden;}
     }
 
