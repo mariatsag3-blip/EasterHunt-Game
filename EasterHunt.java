@@ -280,8 +280,8 @@ public class EasterHunt {
                 }
             }
 
-            // Eagle greift an nur wenn Bunny nicht versteckt ist und Eagle direkt darüber ist
-            int eagleCenterX = eagle.x + eagle.eagleWidth / 2;
+            // Eagle greift an nur wenn Bunny nicht versteckt ist und Eagle direkt darüber ist (S)
+            int eagleCenterX = eagle.x + eagle.eaglewidth / 2;
             int bunnyCenterX = bunny.x + bunny.bunnyWidth / 2;
             int horizontalDistance = Math.abs(eagleCenterX - bunnyCenterX);
             
