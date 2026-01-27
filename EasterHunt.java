@@ -285,20 +285,7 @@ public class EasterHunt {
             int bunnyCenterX = bunny.x + bunny.bunnyWidth / 2;
             int horizontalDistance = Math.abs(eagleCenterX - bunnyCenterX);
             
-            if (!hidingBehindGrass && horizontalDistance < 200) {
-                Draw.setColor(255, 0, 0);
-                
-                Draw.text(width/2 - 220, height/2 - 50, "GAME OVER!", 70, 0);
-                Draw.setColor(0, 0, 0);
-                Draw.text(width/2 - 210, height/2 + 50, "CAUGHT BY EAGLE!", 40, 0);
-                Draw.syncToFrameRate();
-                try {
-                    Thread.sleep(3000);        // "GAME OVER" läuft 3  Sekunden (S)
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.exit(0); 
-            }
+        
             
             
             for (int i = 0; i < eggX.length; i++) {   //Eier werden bei Kontakt mit dem Bunny gesammelt (S)
