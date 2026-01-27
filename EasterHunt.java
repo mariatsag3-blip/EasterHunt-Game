@@ -37,9 +37,9 @@ public class EasterHunt {
         int[][] purpleEgg = null;
         int[][] yellowEgg = null;
 
-
-try {
             // Sonne Bild (S)
+            try {
+          
             int[][] sunFull = Draw.loadImage("images/Sun.png");
             if (sunFull != null) {
                 System.out.println("Sun.png loaded: height=" + sunFull.length + ", width=" + sunFull[0].length);
