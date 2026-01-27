@@ -59,16 +59,16 @@ public class Bunny {
                 return y >= groundY - bunnyHeight; //M
             }
         
-        //S
-    public double getX() {return x;}
+        
+    public double getX() {return x;}       // Standort vom Hasen (S)
     public double getY() {return y;}
-    public double getWidth() {return bunnyWidth;}
+    public double getWidth() {return bunnyWidth;}     //Größe vom Hasen (S)
     public double getHeight() {return bunnyHeight;}
 
-    public void setHidden(boolean hidden) { //S
+    public void setHidden(boolean hidden) {       //Hase versteckt oder nicht (S)
         this.hidden = hidden;
     }
-    public boolean isHidden() { //S
+    public boolean isHidden() {   //S
          return hidden;}
     }
 
