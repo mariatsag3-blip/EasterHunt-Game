@@ -323,11 +323,6 @@ public class EasterHunt {
                 }
                 System.exit(0); 
             }
-            
-            
-            Draw.setColor(0, 0, 0);                       // Punktestand (S)
-            Draw.text(10, 30, "Score: " + score, 30, 0);
-            
         
             
             
@@ -391,12 +386,6 @@ public class EasterHunt {
             Draw.syncToFrameRate();
         }
         
-
-
-
-
-        
-        while(true){
             
             if(!gameover){ //Solange kein Game Over ist M
             Draw.clearScreen();
@@ -438,6 +427,8 @@ public class EasterHunt {
                 }
             }
             
+             Draw.setColor(0, 0, 0);                       // Punktestand (S)
+            Draw.text(10, 30, "Score: " + score, 30, 0);
             
 
         }
