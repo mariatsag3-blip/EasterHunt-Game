@@ -411,16 +411,7 @@ public class EasterHunt {
             
             if(!gameover){ //Solange kein Game Over ist M
             Draw.clearScreen();
-            if (Draw.isKeyDown(KeyEvent.VK_LEFT)){  //Taste Bewegung nach Links M
-                bunny.moveLeft();
-             }
-
-            if (Draw.isKeyDown(KeyEvent.VK_RIGHT)){  //Taste Bewegung nach Rechts M
-                bunny.moveRight();
-            }
-            if (Draw.isKeyDown(KeyEvent.VK_SPACE)){  //Taste Sprung M
-                bunny.Jump();
-            }
+           
             //Gibt an, wenn der Hase versteckt ist (S)
 
             if (grass.isBunnyHidden(bunny)){
