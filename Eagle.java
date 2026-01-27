@@ -26,6 +26,16 @@ public class Eagle {
         Draw.filledRect(x, y, eaglewidth, eagleheightheight);  //Adler zeichnen M
     }
 
+    public void draw() {
+        if (eagleImage != null && x > -eagleWidth && x < windowswidth) { //S
+            Draw.blendImage(x, y, eagleImage, false);
+        } else if (x > -eagleWidth && x < windowswidth) {
+            // Fallback: draw dark gray rectangle if image not loaded
+            Draw.setColor(64, 64, 64); // Dark gray for eagle
+            Draw.filledRect(x, y, eagleWidth, eagleHeight);
+        }
+    }
+    
     try {
             int[][] fullImage = Draw.loadImage(imagePath);      //S
             System.out.println("Eagle image loaded successfully!");
