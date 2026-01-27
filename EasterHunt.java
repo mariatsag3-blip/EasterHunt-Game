@@ -187,6 +187,8 @@ public class EasterHunt {
             System.out.println("Could not load images: " + e.getMessage());
             e.printStackTrace();
         }
+    
+
         
         System.out.println("Game starting... Bunny at position: " + bunny.x + ", " + bunny.y);
 
@@ -265,7 +267,7 @@ public class EasterHunt {
                 bunny.Jump();
             }
             bunny.applyPhysics();
-
+        }
             
             
             boolean hidingBehindGrass = false;  // Prüfen ob Bunny hinter Gras versteckt ist (S)
