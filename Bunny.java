@@ -54,6 +54,16 @@ public class Bunny {
                 if (!hidden) {
                 Draw.filledRect(x, y, bunnyWidth, bunnyHeight);
             }
+            if (bunnyImage != null) {                           //S
+                Draw.blendImage(x, y, bunnyImage, false);
+            } else {
+                
+                Draw.setColor(255, 105, 180);
+                Draw.filledRect(x, y, bunnyWidth, bunnyHeight);
+            }
+
+
+                    
         }
             private boolean isOnGround(){
                 return y >= groundY - bunnyHeight; //M
