@@ -26,6 +26,31 @@ public class Eagle {
         Draw.filledRect(x, y, eaglewidth, eagleheightheight);  //Adler zeichnen M
     }
 
+    try {
+            int[][] fullImage = Draw.loadImage(imagePath);      //S
+            System.out.println("Eagle image loaded successfully!");
+            System.out.println("Eagle dimensions: " + fullImage.length + "x" + fullImage[0].length);
+            
+            
+            int sourceWidth = fullImage[0].length;
+            int sourceHeight = fullImage.length;
+            int startX_crop = (sourceWidth - eagleWidth) / 2;
+            int startY_crop = (sourceHeight - eagleHeight) / 2;
+            
+            this.eagleImage = new int[eagleHeight][eagleWidth];
+            for (int y = 0; y < eagleHeight; y++) {
+                for (int x = 0; x < eagleWidth; x++) {
+                    this.eagleImage[y][x] = fullImage[startY_crop + y][startX_crop + x];
+                }
+            }
+            System.out.println("Eagle image cropped to: " + eagleImage.length + "x" + eagleImage[0].length);
+        } catch (Exception e) {
+            System.out.println("Could not load eagle image: " + e.getMessage());
+            e.printStackTrace();
+            this.eagleImage = null;
+        }
+    }
+
     public void eaglemovement(){   //Adler Bewegung und Wahrscheinlichkeit (x% pro Frame) M
         if(!active){
 
