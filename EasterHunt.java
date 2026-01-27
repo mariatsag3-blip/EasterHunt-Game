@@ -266,15 +266,6 @@ public class EasterHunt {
             }
             bunny.applyPhysics();
 
-
-            // Adler Sound Datei M
-            int prevEagleX = eagle.x;
-            eagle.move();
-             // Adler Sound einfügen wenn der Adler das Spiel beitretet (S)                           
-            if (prevEagleX < 0 && eagle.x >= 0 && eagleSound != null) {
-                System.out.println("Playing eagle sound...");
-                Draw.playSound(eagleSound);
-            }
             
             
             boolean hidingBehindGrass = false;  // Prüfen ob Bunny hinter Gras versteckt ist (S)
