@@ -3,11 +3,14 @@ import java.io.File;
 
 public class Eagle {
 
-    int x= -50;
+    int x= -50; //M
     int y = 40;
     int eaglewidth = 60;
     int eagleheightheight = 40;
-
+   
+    String imagePath = "images/EagleB.png"; //S
+    int[][] eagleImage;
+    
     boolean active = false;     //Adler startet nicht aktiv M
 
     int speed = 3;  //horizontale Geschwindigkeit M
