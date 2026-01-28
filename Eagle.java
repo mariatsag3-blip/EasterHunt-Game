@@ -6,7 +6,7 @@ public class Eagle {
     int x= -50; //M
     int y = 40;
     int eaglewidth = 60;
-    int eagleheightheight = 40;
+    int eagleheight = 40;
    
     String imagePath = "images/EagleB.png"; //S
     int[][] eagleImage;
@@ -19,17 +19,17 @@ public class Eagle {
         this.x = startX;
         this.y = startY;
         this.eaglewidth = width;
-        this.eagleheightheight = height;
+        this.eagleheight = height;
     }
 
     public void draw() {
-        Draw.filledRect(x, y, eaglewidth, eagleheightheight);  //Adler zeichnen M
+        Draw.filledRect(x, y, eaglewidth, eagleheight);  //Adler zeichnen M
     }
 
     public void draw() {
-        if (eagleImage != null && x > -eaglewidth && x < windowswidth) { //S
+        if (eagleImage != null && x > -eaglewidth && x < eaglewidth) { //S
             Draw.blendImage(x, y, eagleImage, false);
-        } else if (x > -eaglewidth && x < windowswidth) {
+        } else if (x > -eaglewidth && x < eaglewidth) {
             // Fallback: draw dark gray rectangle if image not loaded
             Draw.setColor(64, 64, 64); // Dark gray for eagle
             Draw.filledRect(x, y, eaglewidth, eagleHeight);
@@ -44,11 +44,11 @@ public class Eagle {
             
             int sourceWidth = fullImage[0].length;
             int sourceHeight = fullImage.length;
-            int startX_crop = (sourceWidth - eagleWidth) / 2;
-            int startY_crop = (sourceHeight - eagleHeight) / 2;
+            int startX_crop = (sourceWidth - eaglewidth) / 2;
+            int startY_crop = (sourceHeight - eagleheight) / 2;
             
             this.eagleImage = new int[eagleHeight][eaglewidth];
-            for (int y = 0; y < eagleHeight; y++) {
+            for (int y = 0; y < eagleheight; y++) {
                 for (int x = 0; x < eaglewidth; x++) {
                     this.eagleImage[y][x] = fullImage[startY_crop + y][startX_crop + x];
                 }
