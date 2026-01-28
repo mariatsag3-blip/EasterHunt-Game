@@ -34,7 +34,7 @@ public class Eagle {
             Draw.setColor(64, 64, 64); // Dark gray for eagle
             Draw.filledRect(x, y, eagleWidth, eagleHeight);
         }
-    }
+    
     
     try {
             int[][] fullImage = Draw.loadImage(imagePath);      //S
@@ -77,7 +77,7 @@ public class Eagle {
             active= false;
             }
             
-            }
+          }
             
         }
         public void playSound(){ //Adler Sound abspielen M
@@ -91,6 +91,6 @@ public class Eagle {
                 e.printStackTrace();
             }
         }
-        }
+    }
     
     
