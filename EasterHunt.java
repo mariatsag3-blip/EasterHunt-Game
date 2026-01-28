@@ -223,6 +223,36 @@ public class EasterHunt {
                 Draw.setColor(255, 255, 0);
                 Draw.filledEllipse(800, 20, 100, 100);
             }
+
+
+             boolean hidingBehindGrass = false;  // Prüfen ob Bunny hinter Gras versteckt ist (S)
+            int[] grassPositions = {0, 500};
+            int grassWidth = 200;                 
+            for (int grassX : grassPositions) {
+                if (bunny.x + bunny.bunnyWidth > grassX && bunny.x < grassX + grassWidth) {
+                    hidingBehindGrass = true;
+                    break;
+                }
+            }
+            
+            // Eagle greift an nur wenn Bunny nicht versteckt ist und Eagle direkt darüber ist (S)
+            int eagleCenterX = eagle.x + eagle.eaglewidth / 2;
+            int bunnyCenterX = bunny.x + bunny.bunnyWidth / 2;
+            int horizontalDistance = Math.abs(eagleCenterX - bunnyCenterX);
+        }
+            
+            for (int i = 0; i < eggX.length; i++) {   //Eier werden bei Kontakt mit dem Bunny gesammelt (S)
+                if (!eggCollected[i]) {
+                   
+                    boolean xOverlap = bunny.x < eggX[i] + eggWidth && bunny.x + bunny.bunnyWidth > eggX[i];
+                    boolean yOverlap = bunny.y < eggY[i] + eggHeight && bunny.y + bunny.bunnyHeight > eggY[i];
+                    
+                    if (xOverlap && yOverlap) {
+                        eggCollected[i] = true;
+                        score++;
+                    }
+                }
+            }
             
             // Clouds
             if (cloud1 != null && cloud2 != null) {
@@ -268,38 +298,7 @@ public class EasterHunt {
             }
             bunny.applyPhysics();
         }
-            
-            
-            boolean hidingBehindGrass = false;  // Prüfen ob Bunny hinter Gras versteckt ist (S)
-            int[] grassPositions = {0, 500};
-            int grassWidth = 200;                 
-            for (int grassX : grassPositions) {
-                if (bunny.x + bunny.bunnyWidth > grassX && bunny.x < grassX + grassWidth) {
-                    hidingBehindGrass = true;
-                    break;
-                }
-            }
-
-            // Eagle greift an nur wenn Bunny nicht versteckt ist und Eagle direkt darüber ist (S)
-            int eagleCenterX = eagle.x + eagle.eaglewidth / 2;
-            int bunnyCenterX = bunny.x + bunny.bunnyWidth / 2;
-            int horizontalDistance = Math.abs(eagleCenterX - bunnyCenterX);
-            
         
-            
-            
-            for (int i = 0; i < eggX.length; i++) {   //Eier werden bei Kontakt mit dem Bunny gesammelt (S)
-                if (!eggCollected[i]) {
-                   
-                    boolean xOverlap = bunny.x < eggX[i] + eggWidth && bunny.x + bunny.bunnyWidth > eggX[i];
-                    boolean yOverlap = bunny.y < eggY[i] + eggHeight && bunny.y + bunny.bunnyHeight > eggY[i];
-                    
-                    if (xOverlap && yOverlap) {
-                        eggCollected[i] = true;
-                        score++;
-                    }
-                }
-            }
             
             // Eier gesammelt - "LEVEL COMPLETE" (S)
             if (score >= 3) {
@@ -325,7 +324,6 @@ public class EasterHunt {
             }
         
             
-            
             if (!eggCollected[0]) {
                 if (pinkEgg != null) {
                     Draw.blendImage(eggX[0], eggY[0], pinkEgg, false);
@@ -343,9 +341,10 @@ public class EasterHunt {
                     Draw.filledEllipse(eggX[1], eggY[1], 80, 80);
                 }
             }
-
-
-        
+   
+            Draw.setColor(0, 0, 0);                       // Punktestand (S)
+            Draw.text(10, 30, "Score: " + score, 30, 0);
+            
             eagle.draw();
             bunny.draw();
             
@@ -385,7 +384,6 @@ public class EasterHunt {
             
             Draw.syncToFrameRate();
         }
-        
             
             if(!gameover){ //Solange kein Game Over ist M
             Draw.clearScreen();
@@ -397,12 +395,9 @@ public class EasterHunt {
             } else {
                 bunny.setHidden(false);
            }
-            bunny.applyPhysics();
-            bunny.draw();
-            eagle.draw();
-            eagle.eaglemovement();
-            gameOver();
         }
+
+                
         else{                    //Wenn Game Over ist M
             Draw.clearScreen();
             Draw.setColor(0, 0, 0); //Schwarzer Hintergrund M
@@ -417,6 +412,12 @@ public class EasterHunt {
             }
         }
 
+            bunny.applyPhysics();
+            bunny.draw();
+            eagle.draw();
+            eagle.eaglemovement();
+            gameOver();
+
             Draw.syncToFrameRate();
         }
     }
@@ -426,12 +427,7 @@ public class EasterHunt {
                     gameover = true;
                 }
             }
-            
-             Draw.setColor(0, 0, 0);                       // Punktestand (S)
-            Draw.text(10, 30, "Score: " + score, 30, 0);
-            
-
-        }
+}
 
 
     
