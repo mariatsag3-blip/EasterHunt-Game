@@ -27,12 +27,12 @@ public class Eagle {
     }
 
     public void draw() {
-        if (eagleImage != null && x > -eagleWidth && x < windowswidth) { //S
+        if (eagleImage != null && x > -eaglewidth && x < windowswidth) { //S
             Draw.blendImage(x, y, eagleImage, false);
-        } else if (x > -eagleWidth && x < windowswidth) {
+        } else if (x > -eaglewidth && x < windowswidth) {
             // Fallback: draw dark gray rectangle if image not loaded
             Draw.setColor(64, 64, 64); // Dark gray for eagle
-            Draw.filledRect(x, y, eagleWidth, eagleHeight);
+            Draw.filledRect(x, y, eaglewidth, eagleHeight);
         }
     
     
@@ -47,9 +47,9 @@ public class Eagle {
             int startX_crop = (sourceWidth - eagleWidth) / 2;
             int startY_crop = (sourceHeight - eagleHeight) / 2;
             
-            this.eagleImage = new int[eagleHeight][eagleWidth];
+            this.eagleImage = new int[eagleHeight][eaglewidth];
             for (int y = 0; y < eagleHeight; y++) {
-                for (int x = 0; x < eagleWidth; x++) {
+                for (int x = 0; x < eaglewidth; x++) {
                     this.eagleImage[y][x] = fullImage[startY_crop + y][startX_crop + x];
                 }
             }
