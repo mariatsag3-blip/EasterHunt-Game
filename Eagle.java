@@ -27,12 +27,12 @@ public class Eagle {
     }
 
     public void draw() {
-        if (eagleImage != null && x > -eaglewidth && x < eaglewidth) { //S
+        if (eagleImage != null && x > -eaglewidth && x < windowswidth) { //S
             Draw.blendImage(x, y, eagleImage, false);
-        } else if (x > -eaglewidth && x < eaglewidth) {
+        } else if (x > -eaglewidth && x < windowswidth) {
             // Fallback: draw dark gray rectangle if image not loaded
             Draw.setColor(64, 64, 64); // Dark gray for eagle
-            Draw.filledRect(x, y, eaglewidth, eagleHeight);
+            Draw.filledRect(x, y, eaglewidth, eagleheight);
         }
     
     
