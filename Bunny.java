@@ -16,6 +16,9 @@ public class Bunny {
 
         int groundY;   //Bodenhöhe M
 
+        String imagePath = "images/Bunny.png"); //S
+        int[][] bunnyImage;
+        
         public Bunny(int startX, int groundY, int windowswidth){      //M
             this.x = startX;
             this.groundY = groundY;
