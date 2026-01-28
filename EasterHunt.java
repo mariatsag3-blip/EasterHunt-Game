@@ -17,8 +17,7 @@ public class EasterHunt {
         Draw.enableDoubleBuffering(true);   
 
         int groundY = height - 160; //Höhe des Bodens M
-        double grassTopY = - 140;     // oberer Rand vom Gras M
-
+    
         eagle = new Eagle(-50, 40, 60, 40); // Eagle Objekt erzeugt M
 
         bunny = new Bunny(width / 2, groundY, width); // Bunny Objekt erzeugt M
